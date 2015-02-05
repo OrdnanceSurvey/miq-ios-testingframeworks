@@ -17,16 +17,17 @@
 #import "OCMockObject+AsyncVerify.h"
 #import "OHHTTPStubs.h"
 #import "MIQCoreDataTestCase.h"
+#import "XCTestCase+LoadViewController.h"
 
 #define TEST_CASE_WITH_SUBCLASS(name, subclass) \
-@interface name : subclass \
-@end \
-@implementation name \
+    @interface name : subclass                  \
+    @end                                        \
+    @implementation name
 
 #define TEST_CASE(name) TEST_CASE_WITH_SUBCLASS(name, XCTestCase)
 
 #define END_TEST_CASE \
-@end
+    @end
 
-#define Test(x) - (void)test##x
+#define Test(x) -(void)test##x
 #endif
