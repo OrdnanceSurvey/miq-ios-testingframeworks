@@ -39,9 +39,9 @@
     [super tearDown];
 }
 
-- (void)testThatEnvironmentWorks {
-    expect(_model).toNot.beNil();
-    XCTAssertNotNil(self.managedObjectContext, @"managed object context not created");
-}
+//- (void)testThatEnvironmentWorks {
+//    expect(_model).toNot.beNil();
+//    XCTAssertNotNil(self.managedObjectContext, @"managed object context not created");
+//}
 
 @end
