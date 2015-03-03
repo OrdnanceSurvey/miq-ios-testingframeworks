@@ -1,12 +1,12 @@
 # MIQTestingFrameworks
 An iOS framework including prebuilt unit testing libraries including:
 
-* [expecta](https://github.com/petejkim/expecta)
+* [expecta](https://github.com/specta/expecta)
     Simple expectations framework
+* [specta](https://github.com/specta/specta)
+    A light-weight TDD / BDD framework for Objective-C.
 * [OCMock](https://github.com/erikdoe/ocmock)
     Objective-C mock framework. Solid but limited
-* [LRMocky](https://github.com/lukeredpath/LRMocky)
-    Objective-C port of jMock. Fuller featured, but not as battle hardened
 * [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs)
     Network stubbing library
 
