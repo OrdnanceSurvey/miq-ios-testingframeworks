@@ -13,6 +13,7 @@
 #define EXP_SHORTHAND
 #import "Expecta.h"
 #import "NSObject+Expecta.h" // Useful for creating custom expecta matchers
+#import "Specta.h"
 #import "OCMock.h"
 #import "OCMockObject+AsyncVerify.h"
 #import "OHHTTPStubs.h"

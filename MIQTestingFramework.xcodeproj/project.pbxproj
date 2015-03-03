@@ -29,6 +29,8 @@
 		072EE63A16CBE348001EE085 /* MIQCoreDataTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 072EE63916CBE348001EE085 /* MIQCoreDataTestCase.m */; };
 		072EE63D16CBE47B001EE085 /* MIQCoreDataTestCase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 072EE63816CBE348001EE085 /* MIQCoreDataTestCase.h */; };
 		077C453018C07AFE0084F9E3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077C452F18C07AFE0084F9E3 /* XCTest.framework */; };
+		457A53C31AA5C7CD00DA6D4E /* Specta.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457A53C21AA5C79800DA6D4E /* Specta.h */; };
+		457A53C61AA5C82200DA6D4E /* Expecta.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 457A53C51AA5C7F300DA6D4E /* Expecta.h */; };
 		45FD2DF41A839CA5002390D8 /* XCTestCase+LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FD2DF31A839CA5002390D8 /* XCTestCase+LoadViewController.m */; };
 		45FD2DF51A839DFD002390D8 /* XCTestCase+LoadViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45FD2DF21A839CA5002390D8 /* XCTestCase+LoadViewController.h */; };
 		48A74B46198B8E1B00B57F89 /* OCMockObject+AsyncVerify.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A74B45198B8E1B00B57F89 /* OCMockObject+AsyncVerify.m */; };
@@ -53,6 +55,8 @@
 			dstPath = "zinclude/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				457A53C61AA5C82200DA6D4E /* Expecta.h in CopyFiles */,
+				457A53C31AA5C7CD00DA6D4E /* Specta.h in CopyFiles */,
 				45FD2DF51A839DFD002390D8 /* XCTestCase+LoadViewController.h in CopyFiles */,
 				48A74B47198B924100B57F89 /* OCMockObject+AsyncVerify.h in CopyFiles */,
 				072EE63D16CBE47B001EE085 /* MIQCoreDataTestCase.h in CopyFiles */,
@@ -74,6 +78,8 @@
 		072EE63816CBE348001EE085 /* MIQCoreDataTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIQCoreDataTestCase.h; sourceTree = "<group>"; };
 		072EE63916CBE348001EE085 /* MIQCoreDataTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIQCoreDataTestCase.m; sourceTree = "<group>"; };
 		077C452F18C07AFE0084F9E3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		457A53C21AA5C79800DA6D4E /* Specta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
+		457A53C51AA5C7F300DA6D4E /* Expecta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expecta.h; sourceTree = "<group>"; };
 		45FD2DF21A839CA5002390D8 /* XCTestCase+LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+LoadViewController.h"; sourceTree = "<group>"; };
 		45FD2DF31A839CA5002390D8 /* XCTestCase+LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+LoadViewController.m"; sourceTree = "<group>"; };
 		48A74B44198B8E1B00B57F89 /* OCMockObject+AsyncVerify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCMockObject+AsyncVerify.h"; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 				072EE63916CBE348001EE085 /* MIQCoreDataTestCase.m */,
 				45FD2DF21A839CA5002390D8 /* XCTestCase+LoadViewController.h */,
 				45FD2DF31A839CA5002390D8 /* XCTestCase+LoadViewController.m */,
+				457A53C21AA5C79800DA6D4E /* Specta.h */,
+				457A53C51AA5C7F300DA6D4E /* Expecta.h */,
 			);
 			path = testingframeworks;
 			sourceTree = "<group>";
