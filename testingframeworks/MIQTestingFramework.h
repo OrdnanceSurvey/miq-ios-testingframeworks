@@ -18,6 +18,7 @@
 #import "OCMockObject+AsyncVerify.h"
 #import "OHHTTPStubs.h"
 #import "MIQCoreDataTestCase.h"
+#import "SPTCoreDataSpec.h"
 #import "XCTestCase+LoadViewController.h"
 
 #define TEST_CASE_WITH_SUBCLASS(name, subclass) \
