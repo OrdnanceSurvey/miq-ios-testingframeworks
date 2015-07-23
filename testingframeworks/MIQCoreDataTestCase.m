@@ -6,7 +6,6 @@
 //
 
 #import "MIQCoreDataTestCase.h"
-#import "MIQTestingFramework.h"
 
 @implementation MIQCoreDataTestCase {
     NSPersistentStoreCoordinator *_coord;

@@ -10,29 +10,29 @@
 	<string>MIQTestingFramework</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>7065013D-3079-4AE9-9BC6-F66405C3079D</key>
-		<string>ssh://github.com/mobileiq/miq-ios-testingframeworks.git</string>
+		<key>EC972F60AB9D492970B382A07240296021FB8AF7</key>
+		<string>github.com:dhardiman/miq-ios-testingframeworks.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MIQTestingFramework.xcodeproj/project.xcworkspace</string>
+	<string>MIQTestingFramework.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>7065013D-3079-4AE9-9BC6-F66405C3079D</key>
+		<key>EC972F60AB9D492970B382A07240296021FB8AF7</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/mobileiq/miq-ios-testingframeworks.git</string>
+	<string>github.com:dhardiman/miq-ios-testingframeworks.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7065013D-3079-4AE9-9BC6-F66405C3079D</string>
+	<string>EC972F60AB9D492970B382A07240296021FB8AF7</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7065013D-3079-4AE9-9BC6-F66405C3079D</string>
+			<string>EC972F60AB9D492970B382A07240296021FB8AF7</string>
 			<key>IDESourceControlWCCName</key>
 			<string>miq-ios-testingframeworks</string>
 		</dict>
