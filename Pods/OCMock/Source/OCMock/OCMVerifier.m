@@ -36,5 +36,11 @@
     [mockObject verifyInvocation:invocationMatcher atLocation:self.location];
 }
 
+- (void)dealloc
+{
+    [_location release];
+    [super dealloc];
+}
+
 
 @end

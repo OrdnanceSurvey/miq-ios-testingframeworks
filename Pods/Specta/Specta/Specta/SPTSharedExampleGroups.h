@@ -1,6 +1,6 @@
 #import <XCTest/XCTest.h>
-#import <Specta/XCTestCase+Specta.h>
-#import <Specta/SpectaTypes.h>
+#import "XCTestCase+Specta.h"
+#import "SpectaTypes.h"
 
 @class _XCTestCaseImplementation;
 

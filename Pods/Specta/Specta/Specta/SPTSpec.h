@@ -1,5 +1,5 @@
 #import <XCTest/XCTest.h>
-#import <Specta/XCTestCase+Specta.h>
+#import "XCTestCase+Specta.h"
 
 @class
   SPTTestSuite
