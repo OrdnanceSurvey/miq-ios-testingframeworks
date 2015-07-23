@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Mobile IQ. All rights reserved.
 //
 
-@import Specta;
+#import <Specta/Specta.h>
 @import CoreData;
 
 #define CoreDataSpecBegin(name) _SPTCDSpecBegin(name, __FILE__, __LINE__)

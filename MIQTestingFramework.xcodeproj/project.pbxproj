@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		45A7209C1B6180F4008850BA /* UniversalFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 45A7209D1B6180F4008850BA /* Build configuration list for PBXAggregateTarget "UniversalFramework" */;
+			buildPhases = (
+				45A720A01B6180FC008850BA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalFramework;
+			productName = UniversalFramework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		45A720711B61284A008850BA /* MIQTestingFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 45A720701B61284A008850BA /* MIQTestingFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45A720771B61284A008850BA /* MIQTestingFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7206C1B61284A008850BA /* MIQTestingFramework.framework */; };
@@ -20,10 +34,6 @@
 		45A720901B612B6E008850BA /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208C1B612B66008850BA /* OCMock.framework */; };
 		45A720911B612B6E008850BA /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208D1B612B66008850BA /* OHHTTPStubs.framework */; };
 		45A720921B612B6E008850BA /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208E1B612B66008850BA /* Specta.framework */; };
-		45A720941B612B8E008850BA /* Expecta.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208B1B612B66008850BA /* Expecta.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		45A720951B612B8E008850BA /* OCMock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208C1B612B66008850BA /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		45A720961B612B8E008850BA /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208D1B612B66008850BA /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		45A720971B612B8E008850BA /* Specta.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208E1B612B66008850BA /* Specta.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45A720991B617DE5008850BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A720981B617DE5008850BA /* XCTest.framework */; };
 		45A7209B1B617F63008850BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7209A1B617F63008850BA /* CoreData.framework */; };
 /* End PBXBuildFile section */
@@ -45,10 +55,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				45A720941B612B8E008850BA /* Expecta.framework in Embed Frameworks */,
-				45A720951B612B8E008850BA /* OCMock.framework in Embed Frameworks */,
-				45A720961B612B8E008850BA /* OHHTTPStubs.framework in Embed Frameworks */,
-				45A720971B612B8E008850BA /* Specta.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +225,7 @@
 				45A720691B61284A008850BA /* Headers */,
 				45A7206A1B61284A008850BA /* Resources */,
 				45A720931B612B7A008850BA /* Embed Frameworks */,
+				45A721301B618BEB008850BA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -262,6 +269,9 @@
 					45A720751B61284A008850BA = {
 						CreatedOnToolsVersion = 6.4;
 					};
+					45A7209C1B6180F4008850BA = {
+						CreatedOnToolsVersion = 6.4;
+					};
 				};
 			};
 			buildConfigurationList = 072404C716CBAFAD007F6395 /* Build configuration list for PBXProject "MIQTestingFramework" */;
@@ -278,6 +288,7 @@
 			targets = (
 				45A7206B1B61284A008850BA /* MIQTestingFramework */,
 				45A720751B61284A008850BA /* MIQTestingFrameworkTests */,
+				45A7209C1B6180F4008850BA /* UniversalFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -298,6 +309,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45A720A01B6180FC008850BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\n# This script builds the framework for both the simulator and the device, and then combines\n# them into one binary using lipo.\n#\n# On build success, the result is placed into the project folder, and finder will open to\n# that location for convenient access to the newly built framework.\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 4. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}/build/Frameworks/\"\n\ncp -R \"${SRCROOT}/Carthage/Build/iOS/\" \"${PROJECT_DIR}/build/Frameworks\"\n\n# Step 5. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}/build/Frameworks\"";
+		};
+		45A721301B618BEB008850BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#HEADERS_DIR=$BUILT_PRODUCTS_DIR/MIQTestingFramework.framework/Headers/\n#find $HEADERS_DIR -type f -name '*.h' -exec sed -i '' \"s/<Expecta/<MIQTestingFramework/\" {} +\n#find $HEADERS_DIR -type f -name '*.h' -exec sed -i '' \"s/<Specta/<MIQTestingFramework/\" {} +\n#find $HEADERS_DIR -type f -name '*.h' -exec sed -i '' \"s/<OCMock/<MIQTestingFramework/\" {} +";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		45A720671B61284A008850BA /* Sources */ = {
@@ -417,6 +457,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,6 +501,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,6 +576,20 @@
 			};
 			name = Release;
 		};
+		45A7209E1B6180F4008850BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45A7209F1B6180F4008850BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -560,6 +616,15 @@
 			buildConfigurations = (
 				45A720831B61284A008850BA /* Debug */,
 				45A720841B61284A008850BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45A7209D1B6180F4008850BA /* Build configuration list for PBXAggregateTarget "UniversalFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45A7209E1B6180F4008850BA /* Debug */,
+				45A7209F1B6180F4008850BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

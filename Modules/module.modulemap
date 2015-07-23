@@ -5,6 +5,7 @@ framework module MIQTestingFramework {
     module * { export * }
 
     explicit module ExpectaHelpers {
+        header "NSObject+Expecta.h"
         header "EXPDoubleTuple.h"
         header "EXPFloatTuple.h"
         header "EXPMatcherHelpers.h"
