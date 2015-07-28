@@ -3,7 +3,7 @@
 //  OSMaps
 //
 //  Created by Dave Hardiman on 05/02/2015.
-//  Copyright (c) 2015 Ordnance Survey. All rights reserved.
+//  Copyright (c) 2015 David Hardiman. All rights reserved.
 //
 
 @import XCTest;

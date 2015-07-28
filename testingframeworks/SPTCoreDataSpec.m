@@ -3,7 +3,7 @@
 //  MIQTestingFramework
 //
 //  Created by Dave Hardiman on 03/03/2015.
-//  Copyright (c) 2015 Mobile IQ. All rights reserved.
+//  Copyright (c) 2015 David Hardiman. All rights reserved.
 //
 
 #import "SPTCoreDataSpec.h"
