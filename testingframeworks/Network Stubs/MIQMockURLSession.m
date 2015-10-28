@@ -15,14 +15,14 @@
     return OCMClassMock(NSURLSession.class);
 }
 
-- (void)stubRequest:(NSURLRequest *__nonnull)request withData:(NSData *__nullable)data response:(NSURLResponse *__nullable)response error:(NSError *__nullable)error testBlock:(void (^__nonnull)())testBlock {
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
 }
 
 @end
 
 @implementation OCMockObject (MIQMockURLSession)
 
-- (void)stubRequest:(NSURLRequest *__nonnull)request withData:(NSData *__nullable)data response:(NSURLResponse *__nullable)response error:(NSError *__nullable)error testBlock:(void (^__nonnull)())testBlock {
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
     __block void (^sessionBlock)(NSData *data, NSURLResponse *response, NSError *error) = nil;
     [[self expect] dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(id obj) {
                        return [obj isEqual:request];

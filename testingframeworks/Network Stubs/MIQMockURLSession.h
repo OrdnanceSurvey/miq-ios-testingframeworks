@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param error     The error to return or nil
  *  @param testBlock The block to call to run the test
  */
-- (void)stubRequest:(NSURLRequest *)request withData:(NSData *__nullable)data response:(NSURLResponse *__nullable)response error:(NSError *__nullable)error testBlock:(void (^)())testBlock;
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock;
 
 @end
 
