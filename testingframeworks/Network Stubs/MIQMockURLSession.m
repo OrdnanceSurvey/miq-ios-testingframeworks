@@ -18,14 +18,17 @@
 - (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
 }
 
+- (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+}
+
 @end
 
 @implementation OCMockObject (MIQMockURLSession)
 
-- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
+- (void)stubRequestWithCheck:(BOOL (^)(NSURLRequest *obj))checkBlock withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
     __block void (^sessionBlock)(NSData *data, NSURLResponse *response, NSError *error) = nil;
     [[self expect] dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(id obj) {
-                       return [obj isEqual:request];
+                       return checkBlock(obj);
                    }]
                      completionHandler:[OCMArg checkWithBlock:^BOOL(id obj) {
                          sessionBlock = [obj copy];
@@ -34,6 +37,22 @@
     testBlock();
     [self verify];
     sessionBlock(data, response, error);
+}
+
+- (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+    [self stubRequestWithCheck:^BOOL(NSURLRequest *obj) {
+        return [obj.URL isEqual:url];
+    } withData:data response:response
+                         error:error
+                     testBlock:testBlock];
+}
+
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
+    [self stubRequestWithCheck:^BOOL(NSURLRequest *obj) {
+        return [obj isEqual:request];
+    } withData:data response:response
+                         error:error
+                     testBlock:testBlock];
 }
 
 @end

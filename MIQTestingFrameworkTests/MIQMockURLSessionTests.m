@@ -45,6 +45,22 @@
     }];
 }
 
+- (void)testItIsPossibleToStubAURL {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://davidhardiman.me"]];
+    NSData *expectedData = [@"test" dataUsingEncoding:NSUTF8StringEncoding];
+    NSHTTPURLResponse *expectedResponse = [[NSHTTPURLResponse alloc] initWithURL:request.URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+    NSError *expectedError = [NSError errorWithDomain:@"me.davidhardiman" code:12 userInfo:nil];
+    id mockSession = MIQMockURLSession.mockSession;
+    [mockSession stubRequest:request withData:expectedData response:expectedResponse error:expectedError testBlock:^{
+        MIQTestFetcher *fetcher = [[MIQTestFetcher alloc] initWithSession:mockSession];
+        [fetcher fetchRequest:request withCallback:^(NSData *data, NSURLResponse *response, NSError *error) {
+            expect(data).to.equal(expectedData);
+            expect(response).to.equal(expectedResponse);
+            expect(error).to.equal(expectedError);
+        }];
+    }];
+}
+
 @end
 
 @implementation MIQTestFetcher
