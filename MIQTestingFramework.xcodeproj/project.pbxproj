@@ -35,7 +35,7 @@
 		45A720921B612B6E008850BA /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208E1B612B66008850BA /* Specta.framework */; };
 		45A720991B617DE5008850BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A720981B617DE5008850BA /* XCTest.framework */; };
 		45A7209B1B617F63008850BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7209A1B617F63008850BA /* CoreData.framework */; };
-		45E2F32D1B6774A700BDA5E8 /* MIQMockURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E2F32B1B6774A700BDA5E8 /* MIQMockURLSession.h */; };
+		45E2F32D1B6774A700BDA5E8 /* MIQMockURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E2F32B1B6774A700BDA5E8 /* MIQMockURLSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45E2F32E1B6774A700BDA5E8 /* MIQMockURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F32C1B6774A700BDA5E8 /* MIQMockURLSession.m */; };
 		45E2F3301B6778F600BDA5E8 /* MIQMockURLSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F32F1B6778F600BDA5E8 /* MIQMockURLSessionTests.m */; };
 		45E2F3311B677B3400BDA5E8 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208B1B612B66008850BA /* Expecta.framework */; };
@@ -420,6 +420,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -451,6 +452,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
