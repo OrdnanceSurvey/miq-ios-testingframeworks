@@ -72,11 +72,16 @@
                          }]];
     testBlock();
     [self verify];
-    NSString *tempFile = [NSTemporaryDirectory() stringByAppendingPathComponent:@"miq-testing-frameworks-temp"];
-    NSURL *tempURL = [NSURL fileURLWithPath:tempFile];
-    [data writeToURL:tempURL atomically:YES];
+    NSURL *tempURL = nil;
+    if (data) {
+        NSString *tempFile = [NSTemporaryDirectory() stringByAppendingPathComponent:@"miq-testing-frameworks-temp"];
+        tempURL = [NSURL fileURLWithPath:tempFile];
+        [data writeToURL:tempURL atomically:YES];
+    }
     sessionBlock(tempURL, response, error);
-    [NSFileManager.defaultManager removeItemAtURL:tempURL error:nil];
+    if (tempURL) {
+        [NSFileManager.defaultManager removeItemAtURL:tempURL error:nil];
+    }
 }
 
 - (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
