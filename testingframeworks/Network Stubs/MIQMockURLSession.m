@@ -21,6 +21,12 @@
 - (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
 }
 
+- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+}
+
+- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+}
+
 @end
 
 @implementation OCMockObject (MIQMockURLSession)
@@ -53,6 +59,40 @@
     } withData:data response:response
                          error:error
                      testBlock:testBlock];
+}
+
+- (void)stubDownloadWithCheck:(BOOL (^)(NSURLRequest *obj))checkBlock withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+    __block void (^sessionBlock)(NSURL *tempURL, NSURLResponse *response, NSError *error) = nil;
+    [[self expect] downloadTaskWithRequest:[OCMArg checkWithBlock:^BOOL(id obj) {
+                       return checkBlock(obj);
+                   }]
+                         completionHandler:[OCMArg checkWithBlock:^BOOL(id obj) {
+                             sessionBlock = [obj copy];
+                             return YES;
+                         }]];
+    testBlock();
+    [self verify];
+    NSString *tempFile = [NSTemporaryDirectory() stringByAppendingPathComponent:@"miq-testing-frameworks-temp"];
+    NSURL *tempURL = [NSURL fileURLWithPath:tempFile];
+    [data writeToURL:tempURL atomically:YES];
+    sessionBlock(tempURL, response, error);
+    [NSFileManager.defaultManager removeItemAtURL:tempURL error:nil];
+}
+
+- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+    [self stubDownloadWithCheck:^BOOL(NSURLRequest *obj) {
+        return [obj isEqual:request];
+    } withData:data response:response
+                          error:error
+                      testBlock:testBlock];
+}
+
+- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+    [self stubDownloadWithCheck:^BOOL(NSURLRequest *obj) {
+        return [obj.URL isEqual:url];
+    } withData:data response:response
+                          error:error
+                      testBlock:testBlock];
 }
 
 @end

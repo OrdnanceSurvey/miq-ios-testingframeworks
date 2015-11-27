@@ -16,6 +16,8 @@
 
 - (void)fetchRequest:(NSURLRequest *)request withCallback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
+- (void)downloadRequest:(NSURLRequest *)request withCallback:(void (^)(NSURL *url, NSURLResponse *response, NSError *error))callback;
+
 @end
 
 @interface MIQMockURLSessionTests : XCTestCase
@@ -61,6 +63,23 @@
     }];
 }
 
+- (void)testItIsPossibleToStubADownloadURLRequest {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://davidhardiman.me"]];
+    NSData *expectedData = [@"test" dataUsingEncoding:NSUTF8StringEncoding];
+    NSHTTPURLResponse *expectedResponse = [[NSHTTPURLResponse alloc] initWithURL:request.URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+    NSError *expectedError = [NSError errorWithDomain:@"me.davidhardiman" code:12 userInfo:nil];
+    id mockSession = MIQMockURLSession.mockSession;
+    [mockSession stubDownloadRequest:request withData:expectedData response:expectedResponse error:expectedError testBlock:^{
+        MIQTestFetcher *fetcher = [[MIQTestFetcher alloc] initWithSession:mockSession];
+        [fetcher downloadRequest:request withCallback:^(NSURL *tempURL, NSURLResponse *response, NSError *error) {
+            NSString *string = [NSString stringWithContentsOfURL:tempURL encoding:NSUTF8StringEncoding error:nil];
+            expect(string).to.equal(@"test");
+            expect(response).to.equal(expectedResponse);
+            expect(error).to.equal(expectedError);
+        }];
+    }];
+}
+
 @end
 
 @implementation MIQTestFetcher
@@ -74,6 +93,10 @@
 
 - (void)fetchRequest:(NSURLRequest *)request withCallback:(void (^)(NSData *, NSURLResponse *, NSError *))callback {
     [[self.session dataTaskWithRequest:request completionHandler:callback] resume];
+}
+
+- (void)downloadRequest:(NSURLRequest *)request withCallback:(void (^)(NSURL *, NSURLResponse *, NSError *))callback {
+    [[self.session downloadTaskWithRequest:request completionHandler:callback] resume];
 }
 
 @end
