@@ -1,4 +1,4 @@
-github "AliSoftware/OHHTTPStubs" "4.0.2"
-github "dhardiman/expecta" "fb08231d2151b9d1eddac2a3e7497d16a2bd8a57"
-github "dhardiman/ocmock" "6bc97d700ac206ef6b51edd1510e699711b86ed5"
-github "dhardiman/specta" "3750ebb12fb2ab1055bc34485ccdf235e41f416e"
+github "AliSoftware/OHHTTPStubs" "4.7.0"
+github "specta/expecta" "v1.0.5"
+github "erikdoe/ocmock" "v3.2"
+github "specta/specta" "v1.0.5"

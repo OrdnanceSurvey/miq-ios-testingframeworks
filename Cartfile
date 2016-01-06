@@ -1,4 +1,4 @@
-github "dhardiman/specta" "master"
-github "dhardiman/expecta" "master"
-github "dhardiman/ocmock" "master"
+github "specta/specta"
+github "specta/expecta"
+github "erikdoe/ocmock"
 github "AliSoftware/OHHTTPStubs"
