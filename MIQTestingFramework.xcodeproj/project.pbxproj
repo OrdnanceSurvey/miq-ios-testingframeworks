@@ -44,6 +44,7 @@
 		45E2F3351B677BA400BDA5E8 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208C1B612B66008850BA /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45E2F3361B677BB200BDA5E8 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208D1B612B66008850BA /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45E2F3371B677BB200BDA5E8 /* Specta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208E1B612B66008850BA /* Specta.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45E371651C3D1F9800D892DE /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208D1B612B66008850BA /* OHHTTPStubs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 			files = (
 				45A720771B61284A008850BA /* MIQTestingFramework.framework in Frameworks */,
 				45E2F3311B677B3400BDA5E8 /* Expecta.framework in Frameworks */,
+				45E371651C3D1F9800D892DE /* OHHTTPStubs.framework in Frameworks */,
 				45E2F3321B677B3400BDA5E8 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,9 +567,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
@@ -601,10 +603,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
