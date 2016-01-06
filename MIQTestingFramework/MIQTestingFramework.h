@@ -23,3 +23,4 @@ FOUNDATION_EXPORT const unsigned char MIQTestingFrameworkVersionString[];
 #import <MIQTestingFramework/MIQCoreDataTestCase.h>
 #import <MIQTestingFramework/SPTCoreDataSpec.h>
 #import <MIQTestingFramework/XCTestCase+LoadViewController.h>
+#import <MIQTestingFramework/MIQMockURLSession.h>

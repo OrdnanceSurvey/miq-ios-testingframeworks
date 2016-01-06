@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		45A720711B61284A008850BA /* MIQTestingFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 45A720701B61284A008850BA /* MIQTestingFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45A720771B61284A008850BA /* MIQTestingFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7206C1B61284A008850BA /* MIQTestingFramework.framework */; };
-		45A7207E1B61284A008850BA /* MIQTestingFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A7207D1B61284A008850BA /* MIQTestingFrameworkTests.m */; };
 		45A720851B612877008850BA /* MIQCoreDataTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 072EE63916CBE348001EE085 /* MIQCoreDataTestCase.m */; };
 		45A720861B61287A008850BA /* SPTCoreDataSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 457A53CD1AA5E37200DA6D4E /* SPTCoreDataSpec.m */; };
 		45A720871B61287D008850BA /* XCTestCase+LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FD2DF31A839CA5002390D8 /* XCTestCase+LoadViewController.m */; };
@@ -36,6 +35,15 @@
 		45A720921B612B6E008850BA /* Specta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208E1B612B66008850BA /* Specta.framework */; };
 		45A720991B617DE5008850BA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A720981B617DE5008850BA /* XCTest.framework */; };
 		45A7209B1B617F63008850BA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7209A1B617F63008850BA /* CoreData.framework */; };
+		45E2F32D1B6774A700BDA5E8 /* MIQMockURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 45E2F32B1B6774A700BDA5E8 /* MIQMockURLSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45E2F32E1B6774A700BDA5E8 /* MIQMockURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F32C1B6774A700BDA5E8 /* MIQMockURLSession.m */; };
+		45E2F3301B6778F600BDA5E8 /* MIQMockURLSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2F32F1B6778F600BDA5E8 /* MIQMockURLSessionTests.m */; };
+		45E2F3311B677B3400BDA5E8 /* Expecta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208B1B612B66008850BA /* Expecta.framework */; };
+		45E2F3321B677B3400BDA5E8 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A7208C1B612B66008850BA /* OCMock.framework */; };
+		45E2F3341B677BA400BDA5E8 /* Expecta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208B1B612B66008850BA /* Expecta.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45E2F3351B677BA400BDA5E8 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208C1B612B66008850BA /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45E2F3361B677BB200BDA5E8 /* OHHTTPStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208D1B612B66008850BA /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45E2F3371B677BB200BDA5E8 /* Specta.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45A7208E1B612B66008850BA /* Specta.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +67,19 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45E2F3331B677B9700BDA5E8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				45E2F3341B677BA400BDA5E8 /* Expecta.framework in CopyFiles */,
+				45E2F3361B677BB200BDA5E8 /* OHHTTPStubs.framework in CopyFiles */,
+				45E2F3371B677BB200BDA5E8 /* Specta.framework in CopyFiles */,
+				45E2F3351B677BA400BDA5E8 /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -73,13 +94,15 @@
 		45A720701B61284A008850BA /* MIQTestingFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIQTestingFramework.h; sourceTree = "<group>"; };
 		45A720761B61284A008850BA /* MIQTestingFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MIQTestingFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A7207C1B61284A008850BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45A7207D1B61284A008850BA /* MIQTestingFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIQTestingFrameworkTests.m; sourceTree = "<group>"; };
 		45A7208B1B612B66008850BA /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = Carthage/Build/iOS/Expecta.framework; sourceTree = "<group>"; };
 		45A7208C1B612B66008850BA /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = Carthage/Build/iOS/OCMock.framework; sourceTree = "<group>"; };
 		45A7208D1B612B66008850BA /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		45A7208E1B612B66008850BA /* Specta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Specta.framework; path = Carthage/Build/iOS/Specta.framework; sourceTree = "<group>"; };
 		45A720981B617DE5008850BA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCTest.framework; sourceTree = SDKROOT; };
 		45A7209A1B617F63008850BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		45E2F32B1B6774A700BDA5E8 /* MIQMockURLSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIQMockURLSession.h; sourceTree = "<group>"; };
+		45E2F32C1B6774A700BDA5E8 /* MIQMockURLSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIQMockURLSession.m; sourceTree = "<group>"; };
+		45E2F32F1B6778F600BDA5E8 /* MIQMockURLSessionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIQMockURLSessionTests.m; sourceTree = "<group>"; };
 		45FD2DF21A839CA5002390D8 /* XCTestCase+LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+LoadViewController.h"; sourceTree = "<group>"; };
 		45FD2DF31A839CA5002390D8 /* XCTestCase+LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+LoadViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +126,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A720771B61284A008850BA /* MIQTestingFramework.framework in Frameworks */,
+				45E2F3311B677B3400BDA5E8 /* Expecta.framework in Frameworks */,
+				45E2F3321B677B3400BDA5E8 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +171,7 @@
 		072404D116CBAFAD007F6395 /* testingframeworks */ = {
 			isa = PBXGroup;
 			children = (
+				45E2F32A1B67729E00BDA5E8 /* Network Stubs */,
 				072404D216CBAFAD007F6395 /* Supporting Files */,
 				072EE63816CBE348001EE085 /* MIQCoreDataTestCase.h */,
 				072EE63916CBE348001EE085 /* MIQCoreDataTestCase.m */,
@@ -185,8 +211,8 @@
 		45A7207A1B61284A008850BA /* MIQTestingFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				45A7207D1B61284A008850BA /* MIQTestingFrameworkTests.m */,
 				45A7207B1B61284A008850BA /* Supporting Files */,
+				45E2F32F1B6778F600BDA5E8 /* MIQMockURLSessionTests.m */,
 			);
 			path = MIQTestingFrameworkTests;
 			sourceTree = "<group>";
@@ -199,6 +225,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		45E2F32A1B67729E00BDA5E8 /* Network Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				45E2F32B1B6774A700BDA5E8 /* MIQMockURLSession.h */,
+				45E2F32C1B6774A700BDA5E8 /* MIQMockURLSession.m */,
+			);
+			path = "Network Stubs";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -209,6 +244,7 @@
 				45A720881B612885008850BA /* SPTCoreDataSpec.h in Headers */,
 				45A720891B612889008850BA /* MIQCoreDataTestCase.h in Headers */,
 				45A7208A1B61289B008850BA /* XCTestCase+LoadViewController.h in Headers */,
+				45E2F32D1B6774A700BDA5E8 /* MIQMockURLSession.h in Headers */,
 				45A720711B61284A008850BA /* MIQTestingFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +279,7 @@
 				45A720721B61284A008850BA /* Sources */,
 				45A720731B61284A008850BA /* Frameworks */,
 				45A720741B61284A008850BA /* Resources */,
+				45E2F3331B677B9700BDA5E8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -260,7 +297,7 @@
 		072404C416CBAFAD007F6395 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Mobile IQ";
 				TargetAttributes = {
 					45A7206B1B61284A008850BA = {
@@ -346,6 +383,7 @@
 			files = (
 				45A720871B61287D008850BA /* XCTestCase+LoadViewController.m in Sources */,
 				45A720851B612877008850BA /* MIQCoreDataTestCase.m in Sources */,
+				45E2F32E1B6774A700BDA5E8 /* MIQMockURLSession.m in Sources */,
 				45A720861B61287A008850BA /* SPTCoreDataSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45A7207E1B61284A008850BA /* MIQTestingFrameworkTests.m in Sources */,
+				45E2F3301B6778F600BDA5E8 /* MIQMockURLSessionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +420,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -412,6 +452,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -460,6 +501,7 @@
 				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.davidhardiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -504,6 +546,7 @@
 				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.davidhardiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,6 +569,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -541,6 +585,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.davidhardiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -561,6 +606,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -572,6 +618,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.davidhardiman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
