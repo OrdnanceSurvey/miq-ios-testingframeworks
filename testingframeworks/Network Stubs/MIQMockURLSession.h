@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param error     The error to return or nil
  *  @param testBlock The block to call to run the test
  */
-- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock;
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)(void))testBlock;
 
 /**
  *  Expects a call to be made satisfying the passed in url and then returns the passed in data
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param error     The error to return or nil
  *  @param testBlock The block to call to run the test
  */
-- (void)stubRequestForURL:(NSURL *)url withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock;
+- (void)stubRequestForURL:(NSURL *)url withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)(void))testBlock;
 
 /**
  *  Expects a call to be made satisfying the passed in request and then returns the passed in data
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param error     The error to return or nil
  *  @param testBlock The block to call to run the test
  */
-- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock;
+- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)(void))testBlock;
 
 /**
  *  Expects a call to be made satisfying the passed in url and then returns the passed in data
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param error     The error to return or nil
  *  @param testBlock The block to call to run the test
  */
-- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock;
+- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)(void))testBlock;
 
 @end
 

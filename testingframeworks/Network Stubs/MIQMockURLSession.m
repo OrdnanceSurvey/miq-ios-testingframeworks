@@ -15,23 +15,23 @@
     return OCMClassMock(NSURLSession.class);
 }
 
-- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)(void))testBlock {
 }
 
-- (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
 }
 
-- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
 }
 
-- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
 }
 
 @end
 
 @implementation OCMockObject (MIQMockURLSession)
 
-- (void)stubRequestWithCheck:(BOOL (^)(NSURLRequest *obj))checkBlock withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubRequestWithCheck:(BOOL (^)(NSURLRequest *obj))checkBlock withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
     __block void (^sessionBlock)(NSData *data, NSURLResponse *response, NSError *error) = nil;
     [[self expect] dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(id obj) {
                        return checkBlock(obj);
@@ -45,7 +45,7 @@
     sessionBlock(data, response, error);
 }
 
-- (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubRequestForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
     [self stubRequestWithCheck:^BOOL(NSURLRequest *obj) {
         return [obj.URL isEqual:url];
     } withData:data response:response
@@ -53,7 +53,7 @@
                      testBlock:testBlock];
 }
 
-- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)())testBlock {
+- (void)stubRequest:(NSURLRequest *)request withData:(NSData *_Nullable)data response:(NSURLResponse *_Nullable)response error:(NSError *_Nullable)error testBlock:(void (^)(void))testBlock {
     [self stubRequestWithCheck:^BOOL(NSURLRequest *obj) {
         return [obj isEqual:request];
     } withData:data response:response
@@ -61,7 +61,7 @@
                      testBlock:testBlock];
 }
 
-- (void)stubDownloadWithCheck:(BOOL (^)(NSURLRequest *obj))checkBlock withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubDownloadWithCheck:(BOOL (^)(NSURLRequest *obj))checkBlock withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
     __block void (^sessionBlock)(NSURL *tempURL, NSURLResponse *response, NSError *error) = nil;
     [[self expect] downloadTaskWithRequest:[OCMArg checkWithBlock:^BOOL(id obj) {
                        return checkBlock(obj);
@@ -84,7 +84,7 @@
     }
 }
 
-- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubDownloadRequest:(NSURLRequest *)request withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
     [self stubDownloadWithCheck:^BOOL(NSURLRequest *obj) {
         return [obj isEqual:request];
     } withData:data response:response
@@ -92,7 +92,7 @@
                       testBlock:testBlock];
 }
 
-- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)())testBlock {
+- (void)stubDownloadForURL:(NSURL *)url withData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error testBlock:(void (^)(void))testBlock {
     [self stubDownloadWithCheck:^BOOL(NSURLRequest *obj) {
         return [obj.URL isEqual:url];
     } withData:data response:response

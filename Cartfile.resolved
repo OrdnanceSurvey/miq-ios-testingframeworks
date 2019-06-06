@@ -1,4 +1,4 @@
-github "AliSoftware/OHHTTPStubs" "4.7.0"
-github "specta/expecta" "v1.0.5"
-github "erikdoe/ocmock" "v3.2"
-github "specta/specta" "v1.0.5"
+github "AliSoftware/OHHTTPStubs" "8.0.0"
+github "erikdoe/ocmock" "v3.4.3"
+github "specta/expecta" "v1.0.6"
+github "specta/specta" "v1.0.7"
